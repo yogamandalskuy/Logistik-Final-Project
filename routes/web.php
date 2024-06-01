@@ -7,5 +7,5 @@ Route::get('/', function () {
 });
 
 Route::get('/admin', function () {
-    return view('Admin');
+    return view('Dashboard_Admin');
 });

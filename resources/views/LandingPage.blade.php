@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1 style="text-align: center">INI HALAMAN USER</h1>
+
 </body>
 
 </html>
