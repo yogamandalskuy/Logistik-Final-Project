@@ -115,13 +115,6 @@
                             <i class="fas fa-table me-1"></i>
                             DataTable Borrower
                         </div>
-                        <div class="col-lg-3 col-xl-2">
-                            <div class="d-grid gap-2">
-                                <a href="{{ route('barang.create') }}" class="btn
-            btn-primary">Input Barang</a>
-                            </div>
-                        </div>
-
                         <div class="card-body">
                             <table id="datatablesSimple">
                                 <thead>
