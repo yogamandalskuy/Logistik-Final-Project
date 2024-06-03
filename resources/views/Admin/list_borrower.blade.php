@@ -33,11 +33,13 @@
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
-                                    <th>Item ID</th>
+                                    <th>User</th>
+                                    <th>Name</th>
+                                    <th>Qty</th>
+                                    <th>Guarantee</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
                                     <th>Items Name</th>
-                                    <th>Amount</th>
-                                    <th>Actions</th>
-
                                 </tr>
                             </thead>
                             <tbody>
