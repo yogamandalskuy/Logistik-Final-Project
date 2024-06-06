@@ -43,9 +43,6 @@
                                         <option>Staff</option>
                                         <option>Mahasiswa</option>
                                     </select>
-                                    <div class="invalid-feedback">
-                                        Select a valid user.
-                                    </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="Name" class="form-label">Name</label>
@@ -53,6 +50,15 @@
                                         name="Name" id="Name" value="{{ old('Name') }}"
                                         placeholder="Enter Name">
                                     @error('Name')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="Items_Name" class="form-label">Items Name</label>
+                                    <input class="form-control @error('Items_Name') is-invalid @enderror" type="text"
+                                        name="Items_Name" id="Items_Name" value="{{ old('Items_Name') }}"
+                                        placeholder="Enter Items_Name">
+                                    @error('Items_Name')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -66,15 +72,6 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="Guarantee" class="form-label">Guarantee</label>
-                                    <input class="form-control @error('Guarantee') is-invalid @enderror" type="text"
-                                        name="Guarantee" id="Guarantee" value="{{ old('Guarantee') }}"
-                                        placeholder="Enter Guarantee">
-                                    @error('Guarantee')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6 mb-3">
                                     <label for="Start_Date" class="form-label">Start Date</label>
                                     <input class="form-control @error('Start_Date') is-invalid @enderror" type="text"
                                         name="Start_Date" id="Start_Date" value="{{ old('Start_Date') }}"
@@ -84,7 +81,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="End_Date" class="form-label">Start Date</label>
+                                    <label for="End_Date" class="form-label">End Date</label>
                                     <input class="form-control @error('End_Date') is-invalid @enderror" type="text"
                                         name="End_Date" id="End_Date" value="{{ old('End_Date') }}"
                                         placeholder="Enter End_Date">
@@ -92,32 +89,54 @@
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div style="text-align: center">
-                                    <label for="Items_Name" class="form-label">Items Name</label>
-                                    <input class="form-control @error('Items_Name') is-invalid @enderror" type="text"
-                                        name="Items_Name" id="Items_Name" value="{{ old('Items_Name') }}"
-                                        placeholder="Enter Items_Name">
-                                    @error('Items_Name')
+                                <div class="col-md-6 mb-3">
+                                    <label for="Guarantee" class="form-label">Guarantee</label>
+                                    <input class="form-control @error('Guarantee') is-invalid @enderror" type="text"
+                                        name="Guarantee" id="Guarantee" value="{{ old('Guarantee') }}"
+                                        placeholder="Enter Guarantee">
+                                    @error('Guarantee')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-6 d-grid">
-                                        <a href="{{ route('Dashboard') }}" class="btn btn-outline-dark btn-lg mt-3"><i
-                                                class="bi-arrow-left-circle me-2"></i> Cancel</a>
-                                    </div>
-                                    <div class="col-md-6 d-grid">
-                                        <button type="submit" class="btn btn-dark btn-lg mt-3"><i
-                                                class="bi-check-circle me-2"></i> Save</button>
-                                    </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="status" class="form-label">Status</label>
+                                    <select name="status" id="status" class="form-select">
+                                        @foreach ($status as $status)
+                                            <option value="{{ $status->id }}"
+                                                {{ old('status') == $status->id ? 'selected' : '' }}>
+                                                {{ $status->kodestatus . ' - ' . $status->kodestatus }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('status')
+                                        <div class="text-danger"><small>{{ $message }}</small></div>
+                                    @enderror
+                                </div>
+                                {{-- <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04" class="form-label">Status</label>
+                                    <select class="form-select" id="validationCustom04" required>
+                                        <option>Pending🔜</option>
+                                        <option>Approve✅</option>
+                                        <option>Reject❌</option>
+                                    </select>
+                                </div> --}}
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 d-grid">
+                                    <a href="{{ route('Dashboard') }}" class="btn btn-outline-dark btn-lg mt-3"><i
+                                            class="bi-arrow-left-circle me-2"></i> Cancel</a>
+                                </div>
+                                <div class="col-md-6 d-grid">
+                                    <button type="submit" class="btn btn-dark btn-lg mt-3"><i
+                                            class="bi-check-circle me-2"></i> Save</button>
                                 </div>
                             </div>
-                        </form>
                     </div>
+                    </form>
                 </div>
-            </main>
         </div>
+        </main>
+    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>

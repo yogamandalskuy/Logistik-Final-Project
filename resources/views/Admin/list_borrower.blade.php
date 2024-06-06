@@ -35,15 +35,50 @@
                                 <tr>
                                     <th>User</th>
                                     <th>Name</th>
+                                    <th>Items Name</th>
                                     <th>Qty</th>
-                                    <th>Guarantee</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
-                                    <th>Items Name</th>
+                                    <th>Guarantee</th>
+                                    <th>Status</th>
+                                    <th>Fitur</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @foreach ($borrower as $borrower)
+                                    <tr>
+                                        <td>{{ $borrower->user }}</td>
+                                        <td>{{ $borrower->name }}</td>
+                                        <td>{{ $borrower->itemsname }}</td>
+                                        <td>{{ $borrower->qty }}</td>
+                                        <td>{{ $borrower->startdate }}</td>
+                                        <td>{{ $borrower->enddate }}</td>
+                                        <td>{{ $borrower->guarantee }}</td>
+                                        <td>{{ $borrower->status->namastatus }}</td>
+                                        <td>
+                                            {{-- ACTIONS SECTION --}}
+                                            <div class="d-flex">
+                                                <a href="{{ route('borrower.show', ['borrower' => $borrower->id]) }}"
+                                                    class="btn btn-outline-info btn-sm me-2"><i
+                                                        class="bi-person-lines-fill"></i></a>
+                                                <a href="{{ route('borrower.edit', ['borrower' => $borrower->id]) }}"
+                                                    class="btn btn-outline-secondary btn-sm me-2"><i
+                                                        class="bi-pencil-square"></i></a>
+                                                <div>
+                                                    <form
+                                                        action="{{ route('borrower.destroy', ['borrower' => $borrower->id]) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit"
+                                                            class="btn btn-outline-danger btn-sm me-2"><i
+                                                                class="bi-trash"></i></button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
