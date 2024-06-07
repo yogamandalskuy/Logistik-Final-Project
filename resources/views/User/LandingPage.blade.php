@@ -158,14 +158,14 @@
                             </h1>
                         </div>
                         <div class="bg-primary text-center p-4">
-                            <h3 class="m-0">Basic</h3>
+                            <h3 class="m-0">AULA</h3>
                         </div>
                         <div class="d-flex flex-column align-items-center py-4">
-                            <p>HTML5 & CSS3</p>
-                            <p>Bootstrap 4</p>
-                            <p>Responsive Layout</p>
-                            <p>Compatible With All Browsers</p>
-                            <a href="" class="btn btn-primary py-2 px-4 my-2">Details</a>
+                            <p>Aula Tel-U Surabaya</p>
+                            <p>LCD Monitor</p>
+                            <p>Speaker FOH 4</p>
+                            <p>Microphone</p>
+                            <a href="" class="btn btn-primary py-2 px-4 my-2">Pinjam</a>
                         </div>
                     </div>
                 </div>
@@ -173,18 +173,18 @@
                     <div class="bg-secondary">
                         <div class="text-center p-4">
                             <h1 class="display-4 mb-0">
-                                <small>Paket A</small>
+                                <small>Paket</small>
                             </h1>
                         </div>
                         <div class="bg-primary text-center p-4">
-                            <h3 class="m-0">Premium</h3>
+                            <h3 class="m-0">A</h3>
                         </div>
                         <div class="d-flex flex-column align-items-center py-4">
-                            <p>HTML5 & CSS3</p>
-                            <p>Bootstrap 4</p>
-                            <p>Responsive Layout</p>
-                            <p>Compatible With All Browsers</p>
-                            <a href="" class="btn btn-primary py-2 px-4 my-2">Details</a>
+                            <p>Speaker Portable</p>
+                            <p>Mic Wireless</p>
+                            <p>Megaphone</p>
+                            <p>Kabel steker</p>
+                            <a href="" class="btn btn-primary py-2 px-4 my-2">Pinjam</a>
                         </div>
                     </div>
                 </div>
@@ -192,18 +192,18 @@
                     <div class="bg-secondary">
                         <div class="text-center p-4">
                             <h1 class="display-4 mb-0">
-                                <small>Paket B</small>
+                                <small>Paket</small>
                             </h1>
                         </div>
                         <div class="bg-primary text-center p-4">
-                            <h3 class="m-0">Business</h3>
+                            <h3 class="m-0">B</h3>
                         </div>
                         <div class="d-flex flex-column align-items-center py-4">
-                            <p>HTML5 & CSS3</p>
-                            <p>Bootstrap 4</p>
-                            <p>Responsive Layout</p>
-                            <p>Compatible With All Browsers</p>
-                            <a href="" class="btn btn-primary py-2 px-4 my-2">Details</a>
+                            <p>Speaker Portable</p>
+                            <p>Mic Wireless</p>
+                            <p>Kabel RCA</p>
+                            <p>Kabel Steker 5 Meter</p>
+                            <a href="" class="btn btn-primary py-2 px-4 my-2">Pinjam</a>
                         </div>
                     </div>
                 </div>
@@ -217,8 +217,8 @@
             <div class="col-lg-7 col-md-6">
                 <div class="row">
                     <div class="col-md-6 mb-5">
-                        <h3 class="text-primary mb-4">Get In Touch</h3>
-                        <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
+                        <h3 class="text-primary mb-4">TEL-U LOGISTIK</h3>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>Jl. Ketintang No.156, Ketintang, Kec. Gayungan, Surabaya, Jawa Timur 60231</p>
                         <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
                         <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
                         <div class="d-flex justify-content-start mt-4">
@@ -241,8 +241,8 @@
                 </div>
             </div>
             <div class="col-lg-5 col-md-6 mb-5">
-                <h3 class="text-primary mb-4">Newsletter</h3>
-                <p>Rebum labore lorem dolores kasd est, et ipsum amet et at kasd, ipsum sea tempor magna tempor. Accu kasd sed ea duo ipsum. Dolor duo eirmod sea justo no lorem est diam</p>
+                <h3 class="text-primary mb-4">About Me</h3>
+                <p>Tel-U Logistik merupakan tempat peminjaman aset yang digunakan oleh sivitas akademika Telkom University Surabaya</p>
                 <div class="w-100">
                     <div class="input-group">
                         <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
@@ -257,7 +257,7 @@
     <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: #3E3E4E !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
-                <p class="m-0 text-white">&copy; <a href="#">Your Site Name</a>. All Rights Reserved.
+                <p class="m-0 text-white">&copy; <a href="#">telu_logistic</a>. All Rights Reserved.
 
 				<!--/* This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. */-->
 				Designed by <a href="https://htmlcodex.com">HTML Codex</a>

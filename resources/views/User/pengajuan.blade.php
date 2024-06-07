@@ -60,8 +60,6 @@
     </div>
     <!-- Topbar End -->
 
-
-    <!-- Navbar Start -->
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
@@ -91,9 +89,12 @@
     <div class="jumbotron jumbotron-fluid mb-5">
         <div class="container text-center py-5">
             <h1 class="text-white display-3">Pengajuan Peminjaman</h1>
-            <div class="d-inline-flex align-items-center text-white">
+            <a class="btn btn-primary" href="create.blade.php" role="button">Ajukan Peminjaman</a>
+            {{-- <div class="d-inline-flex align-items-center text-white">
                 <p class="m-0"><a class="text-white" href="">Aset Telkom University Surabaya</a></p>
-            </div>
+            </div> --}}
+            <hr>
+
         </div>
     </div>
     <!-- Header End -->
@@ -101,11 +102,45 @@
 
     <!-- Blog Start -->
     <div class="container py-5">
-        <div class="row">
-            <!-- Blog Grid Start -->
-            <div class="col-lg-8">
-                <h4 class="font-weight-bold mb-n1">Nanti isinya Form Pengajuan</h4>
-            </div>
+        <h1 class="mb-4">LIST PEMINJAMAN LOGISTIK</h1>
+
+        <div class="table-responsive border p-3 rounded-3">
+            <table class="table table-bordered table-hover table-striped mb-0 bg-white">
+                <thead>
+                    <tr>
+                        <th>Nama Peminjam</th>
+                        <th>NIM</th>
+                        <th>No. Telepon</th>
+                        <th>Peminjaman</th>
+                        <th>Tanggal Peminjaman</th>
+                        <th>Tanggal Selesai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>YUM YUM</td>
+                        <td>1204220099</td>
+                        <td>081234439102</td>
+                        <td>Ruang A</td>
+                        <td>Tanggal Pinjam</td>
+                        <td>Tanggal Selesai</td>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>java oasis</td>
+                        <td>120422001000</td>
+                        <td>0812345678908</td>
+                        <td>Ruang B</td>
+                        <td>Tanggal Pinjam</td>
+                        <td>Tanggal Selesai</td>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <!-- Blog End -->
@@ -117,17 +152,15 @@
             <div class="col-lg-7 col-md-6">
                 <div class="row">
                     <div class="col-md-6 mb-5">
-                        <h3 class="text-primary mb-4">Get In Touch</h3>
-                        <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
+                        <h3 class="text-primary mb-4">TEL-U LOGISTIK</h3>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>Jl. Ketintang No.156, Ketintang, Kec. Gayungan, Surabaya, Jawa Timur 60231</p>
                         <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
                         <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
                         <div class="d-flex justify-content-start mt-4">
                             <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-socil" href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="col-md-6 mb-5">
@@ -143,13 +176,11 @@
                 </div>
             </div>
             <div class="col-lg-5 col-md-6 mb-5">
-                <h3 class="text-primary mb-4">Newsletter</h3>
-                <p>Rebum labore lorem dolores kasd est, et ipsum amet et at kasd, ipsum sea tempor magna tempor. Accu
-                    kasd sed ea duo ipsum. Dolor duo eirmod sea justo no lorem est diam</p>
+                <h3 class="text-primary mb-4">About Me</h3>
+                <p>Tel-U Logistik merupakan tempat peminjaman aset yang digunakan oleh sivitas akademika Telkom University Surabaya</p>
                 <div class="w-100">
                     <div class="input-group">
-                        <input type="text" class="form-control border-light" style="padding: 30px;"
-                            placeholder="Your Email Address">
+                        <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
                         <div class="input-group-append">
                             <button class="btn btn-primary px-4">Sign Up</button>
                         </div>
@@ -158,15 +189,14 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
-        style="border-color: #3E3E4E !important;">
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: #3E3E4E !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
-                <p class="m-0 text-white">&copy; <a href="#">Your Site Name</a>. All Rights Reserved.
+                <p class="m-0 text-white">&copy; <a href="#">telu_logistic</a>. All Rights Reserved.
 
-                    <!--/* This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. */-->
-                    Designed by <a href="https://htmlcodex.com">HTML Codex</a>
-                    <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+				<!--/* This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. */-->
+				Designed by <a href="https://htmlcodex.com">HTML Codex</a>
+                <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
                 </p>
             </div>
             <div class="col-lg-6 text-center text-md-right">
