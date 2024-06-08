@@ -1,24 +1,9 @@
-@extends('Admin.layouts.top_bar')
-@extends('Admin.layouts.side_bar')
-<!DOCTYPE html>
-<html lang="en">
+@extends('Admin.layouts.app')
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>List Borrower</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-</head>
-
+@section('content')
 <body class="sb-nav-fixed">
 
     <div id="layoutSidenav">
-
         <div id="layoutSidenav_content">
             <main>
                 <nav nav class="container-fluid px-4">
@@ -59,11 +44,14 @@
                                             {{-- ACTIONS SECTION --}}
                                             <div class="d-flex">
                                                 <a href="{{ route('borrower.show', ['borrower' => $borrower->id]) }}"
-                                                    class="btn btn-outline-info btn-sm me-2"><i
-                                                        class="bi-person-lines-fill"></i></a>
+                                                    class="btn btn-outline-info btn-sm me-2">
+                                                    <i class="bi bi-person-lines-fill"></i>
+                                                </a>
                                                 <a href="{{ route('borrower.edit', ['borrower' => $borrower->id]) }}"
-                                                    class="btn btn-outline-secondary btn-sm me-2"><i
-                                                        class="bi-pencil-square"></i></a>
+                                                    class="btn btn-outline-secondary btn-sm me-2"
+                                                    data-id="{{ $borrower->id }}">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </a>
                                                 <div>
                                                     <form
                                                         action="{{ route('borrower.destroy', ['borrower' => $borrower->id]) }}"
@@ -71,8 +59,10 @@
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit"
-                                                            class="btn btn-outline-danger btn-sm me-2"><i
-                                                                class="bi-trash"></i></button>
+                                                            class="btn btn-outline-danger btn-sm me-2 btn-delete"
+                                                            data-name="{{ $borrower->user }}"><i
+                                                                class="bi-trash"></i></button>>
+                                                        </button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -83,12 +73,108 @@
                         </table>
                     </div>
                 </div>
+            </main>
         </div>
     </div>
-    </main>
+    @push('scripts')
+        <script type="module">
+            $(document).ready(function() {
+                console.log('DataTable script running');
+                $("#borrowerTable").DataTable({
+                    columns: [{
+                            data: "user",
+                            name: "user"
+                        },
+                        {
+                            data: "name",
+                            name: "name"
+                        },
+                        {
+                            data: "itemsname",
+                            name: "itemsname"
+                        },
+                        {
+                            data: "qty",
+                            name: "qty"
+                        },
+                        {
+                            data: "startdate",
+                            name: "startdate"
+                        },
+                        {
+                            data: "enddate",
+                            name: "enddate"
+                        },
+                        {
+                            data: "guarantee",
+                            name: "guarantee"
+                        },
+                        {
+                            data: "status",
+                            name: "status"
+                        },
+                        {
+                            data: "fitur",
+                            name: "fitur",
+                            orderable: false,
+                            searchable: false
+                        }
+                    ],
+                    order: [
+                        [0, "desc"]
+                    ],
+                    lengthMenu: [
+                        [5, 10, 25, 50, 100, -1],
+                        [5, 10, 25, 50, 100, "All"]
+                    ],
+                });
 
-    </div>
-    </div>
+                // Handle edit button click event
+                $("#borrowerTable").on("click", ".btn-edit", function() {
+                    var id = $(this).data('id');
+                    var user = $(this).data('user');
+                    var name = $(this).data('name');
+                    var itemsname = $(this).data('itemsname');
+                    var qty = $(this).data('qty');
+                    var startdate = $(this).data('startdate');
+                    var enddate = $(this).data('enddate');
+                    var guarantee = $(this).data('guarantee');
+                    var status = $(this).data('status');
+
+                    $('#editItemForm').attr('action', '/borrower/' + id);
+                    $('#edit_user').val(user);
+                    $('#edit_name').val(name);
+                    $('#edit_itemsname').val(itemsname);
+                    $('#edit_qty').val(qty);
+                    $('#edit_startdate').val(startdate);
+                    $('#edit_enddate').val(enddate);
+                    $('#edit_guarantee').val(guarantee);
+                    $('#edit_status').val(status);
+
+                    $('#editItemModal').modal('show');
+                });
+
+                // Handle delete button click event
+                $("#borrowerTable").on("click", ".btn-delete", function(e) {
+                    e.preventDefault();
+                    var form = $(this).closest("form");
+                    var name = $(this).data("name");
+                    Swal.fire({
+                        title: "Are you sure want to delete\n" + name + "?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: "bg-primary",
+                        confirmButtonText: "Yes, delete it!",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    });
+                });
+            });
+        </script>
+    @endpush
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="js/scripts.js"></script>

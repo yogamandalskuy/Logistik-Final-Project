@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Borrowers extends Model
+class Status extends Model
 {
-    use HasFactory;
-    public function statuses()
+    public function borrower()
     {
-        return $this->belongsTo(Statuses::class);
+        return $this->hasMany(Borrower::class);
     }
 }

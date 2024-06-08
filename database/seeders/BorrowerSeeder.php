@@ -22,7 +22,7 @@ class BorrowerSeeder extends Seeder
                 'startdate' => '2024-05-22',
                 'enddate' => '2024-05-23',
                 'guarantee'=> 'ktp',
-                'status_id' => 'PE'
+                'status_id' => 1
             ],
             [
                 'user'=> 'Staff',
@@ -32,7 +32,7 @@ class BorrowerSeeder extends Seeder
                 'startdate' => '2024-05-24',
                 'enddate' => '2024-05-27',
                 'guarantee'=> 'ktp',
-                'status_id' => 'AP'
+                'status_id' => 2
             ],
             [
                 'user'=> 'Mahasiswa',
@@ -42,7 +42,7 @@ class BorrowerSeeder extends Seeder
                 'startdate' => '2024-05-22',
                 'enddate' => '2024-05-23',
                 'guarantee'=> 'ktp',
-                'status_id' => 'PE'
+                'status_id' => 3
             ],
         ]);
     }

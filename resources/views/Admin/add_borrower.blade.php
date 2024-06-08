@@ -1,19 +1,6 @@
-@extends('Admin.layouts.top_bar')
-@extends('Admin.layouts.side_bar')
-<!DOCTYPE html>
-<html lang="en">
+@extends('Admin.layouts.app')
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>List Borrower</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-</head>
+@section('content')
 
 <body class="sb-nav-fixed">
 
@@ -37,18 +24,18 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="validationCustom04" class="form-label">User</label>
-                                    <select class="form-select" id="validationCustom04" required>
-                                        <option>Dosen</option>
-                                        <option>Staff</option>
-                                        <option>Mahasiswa</option>
+                                    <label for="User" class="form-label">User</label>
+                                    <select name="User" id="User" class="form-select">
+                                        <option value="Dosen"> Dosen </option>
+                                        <option value="Staff"> Staff </option>
+                                        <option value="Mahasiswa"> Mahasiswa </option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="Name" class="form-label">Name</label>
                                     <input class="form-control @error('Name') is-invalid @enderror" type="text"
                                         name="Name" id="Name" value="{{ old('Name') }}"
-                                        placeholder="Enter Name">
+                                        placeholder="Masukkan Nama">
                                     @error('Name')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -57,7 +44,7 @@
                                     <label for="Items_Name" class="form-label">Items Name</label>
                                     <input class="form-control @error('Items_Name') is-invalid @enderror" type="text"
                                         name="Items_Name" id="Items_Name" value="{{ old('Items_Name') }}"
-                                        placeholder="Enter Items_Name">
+                                        placeholder="Masukkan Nama Barang">
                                     @error('Items_Name')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -66,25 +53,25 @@
                                     <label for="Qty" class="form-label">Qty</label>
                                     <input class="form-control @error('Qty') is-invalid @enderror" type="text"
                                         name="Qty" id="Qty" value="{{ old('Qty') }}"
-                                        placeholder="Enter Qty">
+                                        placeholder="Masukkan Jumlah">
                                     @error('Qty')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="Start_Date" class="form-label">Start Date</label>
-                                    <input class="form-control @error('Start_Date') is-invalid @enderror" type="text"
+                                    <input class="form-control @error('Start_Date') is-invalid @enderror" type="date"
                                         name="Start_Date" id="Start_Date" value="{{ old('Start_Date') }}"
-                                        placeholder="Enter Start_Date">
+                                        placeholder="Masukkan Tanggal Mulai">
                                     @error('Start_Date')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="End_Date" class="form-label">End Date</label>
-                                    <input class="form-control @error('End_Date') is-invalid @enderror" type="text"
+                                    <input class="form-control @error('End_Date') is-invalid @enderror" type="date"
                                         name="End_Date" id="End_Date" value="{{ old('End_Date') }}"
-                                        placeholder="Enter End_Date">
+                                        placeholder="Masukkan Tanggal Selesai">
                                     @error('End_Date')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -93,7 +80,7 @@
                                     <label for="Guarantee" class="form-label">Guarantee</label>
                                     <input class="form-control @error('Guarantee') is-invalid @enderror" type="text"
                                         name="Guarantee" id="Guarantee" value="{{ old('Guarantee') }}"
-                                        placeholder="Enter Guarantee">
+                                        placeholder="Masukkan Jaminan">
                                     @error('Guarantee')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -104,40 +91,33 @@
                                         @foreach ($status as $status)
                                             <option value="{{ $status->id }}"
                                                 {{ old('status') == $status->id ? 'selected' : '' }}>
-                                                {{ $status->kodestatus . ' - ' . $status->kodestatus }}</option>
+                                                {{ $status->kodestatus . ' - ' . $status->namastatus }}
+                                            </option>
                                         @endforeach
                                     </select>
                                     @error('status')
                                         <div class="text-danger"><small>{{ $message }}</small></div>
                                     @enderror
                                 </div>
-                                {{-- <div class="col-md-6 mb-3">
-                                    <label for="validationCustom04" class="form-label">Status</label>
-                                    <select class="form-select" id="validationCustom04" required>
-                                        <option>Pending🔜</option>
-                                        <option>Approve✅</option>
-                                        <option>Reject❌</option>
-                                    </select>
-                                </div> --}}
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-md-6 d-grid">
                                     <a href="{{ route('Dashboard') }}" class="btn btn-outline-dark btn-lg mt-3"><i
-                                            class="bi-arrow-left-circle me-2"></i> Cancel</a>
+                                            class="bi-arrow-left-circle me-2"></i> Cancel </a>
                                 </div>
                                 <div class="col-md-6 d-grid">
                                     <button type="submit" class="btn btn-dark btn-lg mt-3"><i
-                                            class="bi-check-circle me-2"></i> Save</button>
+                                            class="bi-check-circle me-2"></i> Save </button>
                                 </div>
                             </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
+            </main>
         </div>
-        </main>
     </div>
-    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="js/scripts.js"></script>

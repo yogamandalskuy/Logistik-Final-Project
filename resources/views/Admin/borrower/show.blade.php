@@ -1,19 +1,6 @@
-@extends('Admin.layouts.top_bar')
-@extends('Admin.layouts.side_bar')
-<!DOCTYPE html>
-<html lang="en">
+@extends('Admin.layouts.app')
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>List Borrower</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-</head>
+@section('content')
 
 <body class="sb-nav-fixed">
 
@@ -21,14 +8,13 @@
 
         <div id="layoutSidenav_content">
             <main>
-                <nav nav class="container-fluid px-4">
-                    <h1 class="mt-4">List Borrower</h1>
+                <nav class="container-fluid px-4">
+                    <h1 class="mt-4">Add Borrower</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">List Borrower</li>
+                        <li class="breadcrumb-item active">Add Borrower</li>
                     </ol>
                 </nav>
                 <div class="card mb-4" style="width: 97%; margin-left:1%">
-
                     <div class="container-sm my-5">
                         <div class="row justify-content-center">
                             <div class="p-5 bg-light rounded-3 col-xl-4 border">
@@ -52,19 +38,19 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="Qty" class="form-label">Qty</label>
-                                            <h5>{{ $borrower->qty }}</h5>
+                                        <h5>{{ $borrower->qty }}</h5>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="StartDate" class="form-label">Start Date</label>
-                                            <h5>{{ $borrower->startdate }}</h5>
+                                        <h5>{{ $borrower->startdate }}</h5>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="EndDate" class="form-label">End Date</label>
-                                            <h5>{{ $borrower->enddate }}</h5>
+                                        <h5>{{ $borrower->enddate }}</h5>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="Guarantee" class="form-label">Guarantee</label>
-                                            <h5>{{ $borrower->guarantee }}</h5>
+                                        <h5>{{ $borrower->guarantee }}</h5>
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <label for="Status" class="form-label">Status</label>
@@ -74,19 +60,18 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-12 d-grid">
-                                        <a href="{{ route('Dashboard') }}"
-                                            class="btn btn-outline-dark btn-lg mt-3"><i
-                                                class="bi-arrow-left-circle
-                me-2"></i> Back</a>
+                                        <a href="{{ route('Dashboard') }}" class="btn btn-outline-dark btn-lg mt-3">
+                                            <i class="bi-arrow-left-circle me-2"></i> Back
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </main>
         </div>
     </div>
-    </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>

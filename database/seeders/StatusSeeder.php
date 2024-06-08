@@ -15,15 +15,15 @@ class StatusSeeder extends Seeder
     {
         DB::table('statuses')->insert([
             [
-                'kodestatus' => 'PE',
+                'kodestatus' => '1',
                 'namastatus' => 'Pending',
             ],
             [
-                'kodestatus' => 'AP',
+                'kodestatus' => '2',
                 'namastatus' => 'Approve',
             ],
             [
-                'kodestatus' => 'RE',
+                'kodestatus' => '3',
                 'namastatus' => 'Reject',
 
             ],
