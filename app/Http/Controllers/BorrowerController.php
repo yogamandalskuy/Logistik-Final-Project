@@ -79,9 +79,9 @@ class BorrowerController extends Controller
 
         // ELOQUENT
         $borrower = Borrower::find($id);
-        if (!$borrower) {
-            return redirect()->route('Dashboard')->with('error', 'Borrower not found');
-        }
+        // if (!$borrower) {
+        //     return redirect()->route('Dashboard')->with('error', 'Borrower not found');
+        // }
 
         return view('Admin.borrower.show', compact('pageTitle', 'borrower'));
     }
