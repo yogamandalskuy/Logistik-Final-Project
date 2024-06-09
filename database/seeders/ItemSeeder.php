@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Item;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -12,12 +13,13 @@ class ItemSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('items')->insert([
-            [
-            'Item_ID' => 'KO',
-            'Items_Name' => 'Kabel Olor',
-            'Amount' => 10,
-            ],
-            ]);
+        // DB::table('items')->insert([
+        //     [
+        //     'item_id' => 'KO',
+        //     'item_name' => 'Kabel Olor',
+        //     'amount' => 10,
+        //     ],
+        //     ]);
+        item::factory()->count(10)->create();
     }
 }

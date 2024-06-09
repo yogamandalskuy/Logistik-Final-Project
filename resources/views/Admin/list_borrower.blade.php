@@ -69,6 +69,15 @@
                                             </td>
                                         </tr>
                                     @endforeach
+                                        <th>Qty</th>
+                                        <th>Guarantee</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Items Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
                                 </tbody>
                             </table>
                         </div>
@@ -151,5 +160,7 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+            </div>
+        </div>
     </body>
 @endsection
