@@ -11,21 +11,28 @@
     <div id="layoutSidenav">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            {{-- <a class="navbar-brand ps-3" href="{{ route('home') }}" style="width:170px">Tel-U Logistic</a> --}}
+            {{-- <img src="{{ Vite::asset('resources/images/logo.png') }}" alt="Your Image"
+                style="width: 20px; margin-left:10px"> --}}
+            <a class="navbar-brand ps-3" href="{{ route('Dashboard') }}" style="width:170px">Tel-U Logistic</a>
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
-                <i class="fas fa-bars"></i>
-            </button>
-            <!-- Navbar Right Side -->
-            {{-- <div class="ms-auto me-3">
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-                <a class="btn btn-outline-danger" href="{{ route('logout') }}"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Logout <i class="fas fa-sign-out-alt ms-2"></i>
-                </a>
-            </div> --}}
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                    class="fas fa-bars"></i></button>
+
+            <!-- Navbar Search-->
+            {{-- <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                </div>
+            </form> --}}
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
         </nav>
         <div id="layoutSidenav_nav">
 
@@ -33,10 +40,10 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        {{-- <a class="nav-link" href="{{ route('home') }}">
+                        <a class="nav-link" href="{{ route('Dashboard') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
-                        </a> --}}
+                        </a>
                         <div class="sb-sidenav-menu-heading">DATA ADDITION</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -48,7 +55,7 @@
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                 <a class="nav-link" href="{{ route('add_borrower') }}">Add Data Borrower</a>
-                                <a class="nav-link" href="{{ route('add_borrower') }}">List Borrower</a>
+                                <a class="nav-link" href="{{ route('list_borrower') }}">List Borrower</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -60,18 +67,24 @@
                         <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                {{-- <a class="nav-link collapsed" href="{{ route('create_item') }}">
+                                <a class="nav-link collapsed" href="create_item">
                                     Add Item
-                                </a> --}}
+                                </a>
                                 <a class="nav-link collapsed" href="{{ route('list_item') }}">
                                     List Item
                                 </a>
                             </nav>
                         </div>
-                        {{-- <a class="nav-link" href="{{ route('request_borrower') }}       ">
+                        <a class="nav-link" href="#">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Data Request
-                        </a> --}}
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Addons</div>
+                        <a class="nav-link" href="charts.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Charts
+                        </a>
+
                     </div>
                 </div>
             </nav>
