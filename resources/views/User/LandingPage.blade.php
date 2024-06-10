@@ -115,7 +115,7 @@
                     <p class="mb-4">Jam Operasional: 08.30 WIB - 15.00 WIB</p>
                     <div class="d-flex align-items-center pt-2">
                         <button type="button" class="btn-play" data-toggle="modal"
-                            data-src="https://www.youtube.com/live/UJv6ERqpD5U?si=Skf_OV8NXL9WojaX" data-target="#videoModal">
+                            data-src="https://www.tiktok.com/@yumyum.snackdrink/video/7367391683513699589?_t=8n3KhSYBKBF&_r=1" data-target="#videoModal">
                             <span></span>
                         </button>
                         <h5 class="font-weight-bold m-0 ml-4">Play Video</h5>
@@ -165,7 +165,7 @@
                             <p>LCD Monitor</p>
                             <p>Speaker FOH 4</p>
                             <p>Microphone</p>
-                            <a href="" class="btn btn-primary py-2 px-4 my-2">Pinjam</a>
+                            <a class="btn btn-primary" href="{{ route('create')}}" role="button">Pinjam</a>
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@
                             <p>Mic Wireless</p>
                             <p>Megaphone</p>
                             <p>Kabel steker</p>
-                            <a href="" class="btn btn-primary py-2 px-4 my-2">Pinjam</a>
+                            <a class="btn btn-primary" href="{{ route('create')}}" role="button">Pinjam</a>
                         </div>
                     </div>
                 </div>
@@ -203,7 +203,7 @@
                             <p>Mic Wireless</p>
                             <p>Kabel RCA</p>
                             <p>Kabel Steker 5 Meter</p>
-                            <a href="" class="btn btn-primary py-2 px-4 my-2">Pinjam</a>
+                            <a class="btn btn-primary" href="{{ route('create')}}" role="button">Pinjam</a>
                         </div>
                     </div>
                 </div>
