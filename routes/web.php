@@ -7,6 +7,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/admin', function () {
@@ -39,3 +40,7 @@ Route::get('jadwal', [JadwalController::class, 'jadwal'])->name('jadwal');
 Route::get('getitem', [ItemController::class, 'getData'])->name('item.getData');
 // EKSPORT EXCEL
 Route::get('exportExcel', [ItemController::class, 'exportExcel'])->name('item.exportExcel');
+
+// CREATE USER
+Route::get('list_user', [UserController::class, 'index'])->name('index');
+Route::get('create_user', [UserController::class, 'create'])->name('create');

@@ -89,10 +89,7 @@
     <div class="jumbotron jumbotron-fluid mb-5">
         <div class="container text-center py-5">
             <h1 class="text-white display-3">Pengajuan Peminjaman</h1>
-            <a class="btn btn-primary" href="create.blade.php" role="button">Ajukan Peminjaman</a>
-            {{-- <div class="d-inline-flex align-items-center text-white">
-                <p class="m-0"><a class="text-white" href="">Aset Telkom University Surabaya</a></p>
-            </div> --}}
+            <a class="btn btn-primary" href="{{ route('create')}}" role="button">Ajukan Peminjaman</a>
             <hr>
 
         </div>
@@ -108,20 +105,20 @@
             <table class="table table-bordered table-hover table-striped mb-0 bg-white">
                 <thead>
                     <tr>
+                        <th>Users</th>
                         <th>Nama Peminjam</th>
-                        <th>NIM</th>
-                        <th>No. Telepon</th>
-                        <th>Peminjaman</th>
+                        <th>Items Name</th>
+                        <th>Qty</th>
                         <th>Tanggal Peminjaman</th>
                         <th>Tanggal Selesai</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>YUM YUM</td>
-                        <td>1204220099</td>
-                        <td>081234439102</td>
-                        <td>Ruang A</td>
+                        <td>Mahasiswa</td>
+                        <td>Yum Yum</td>
+                        <td>Paket A</td>
+                        <td>1</td>
                         <td>Tanggal Pinjam</td>
                         <td>Tanggal Selesai</td>
                                 </div>
@@ -130,10 +127,10 @@
                     </tr>
 
                     <tr>
-                        <td>java oasis</td>
-                        <td>120422001000</td>
-                        <td>0812345678908</td>
-                        <td>Ruang B</td>
+                        <td>Dosen</td>
+                        <td>Ibu BBBBB</td>
+                        <td>Paket B</td>
+                        <td>5</td>
                         <td>Tanggal Pinjam</td>
                         <td>Tanggal Selesai</td>
                             </div>
