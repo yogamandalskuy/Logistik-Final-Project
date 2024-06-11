@@ -12,9 +12,10 @@ return new class() extends Migration {
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('Item_ID');
-            $table->string('Items_Name');
-            $table->integer('Amount');
+            $table->string('item_id');
+            $table->string('item_name');
+            $table->integer('amount');
+            $table->timestamps();
         });
     }
 

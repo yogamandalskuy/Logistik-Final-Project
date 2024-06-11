@@ -10,4 +10,17 @@ class DashboardController extends Controller
 
         return view('Admin.Dashboard_Admin', ['pageTitle' => $pageTitle]);
     }
+
+    public function create()
+    {
+        $pageTitle = 'Add Items';
+        $items = item::all();
+
+        return view('Admin.create_item', compact('pageTitle', 'items'));
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }

@@ -1,5 +1,4 @@
 @extends('Admin.layouts.app')
-
 @section('content')
 
     <body class="sb-nav-fixed">

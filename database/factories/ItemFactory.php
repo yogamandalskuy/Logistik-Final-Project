@@ -32,6 +32,8 @@ class ItemFactory extends Factory
             'item_id' => $itemId,
             'item_name' => $itemName,
             'amount' => $this->faker->randomNumber(2),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }
