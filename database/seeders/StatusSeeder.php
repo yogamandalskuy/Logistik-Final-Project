@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -25,7 +24,6 @@ class StatusSeeder extends Seeder
             [
                 'kodestatus' => '3',
                 'namastatus' => 'Reject',
-
             ],
         ]);
     }

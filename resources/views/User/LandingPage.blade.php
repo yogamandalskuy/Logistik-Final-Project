@@ -69,18 +69,18 @@
                     <img src="User/img/logo.jpg" alt="logo" style="width: 50px; margin-right: 10px;">
                     <h4>Tel-U Logistic</h4>
                 </div>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
-                <div class="navbar-nav m-auto py-0">
-                    <a href="{{ route('landingpage') }}" class="nav-item nav-link active">Beranda</a>
-                    <a href="{{ route('about') }}" class="nav-item nav-link">Tentang</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Layanan</a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a href="{{ route('pengajuan') }}" class="dropdown-item">Pengajuan Peminjaman</a>
-                            <a href="{{ route('jadwal') }}" class="dropdown-item">Jadwal Peminjaman</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                    <div class="navbar-nav m-auto py-0">
+                        <a href="{{ route('landingpage') }}" class="nav-item nav-link active">Beranda</a>
+                        <a href="{{ route('about') }}" class="nav-item nav-link">Tentang</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Layanan</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="{{ route('pengajuan') }}" class="dropdown-item">Pengajuan Peminjaman</a>
+                                <a href="{{ route('jadwal') }}" class="dropdown-item">Jadwal Peminjaman</a>
         </nav>
     </div>
     <!-- Navbar End -->
@@ -111,11 +111,13 @@
                 <div class="col-lg-7">
                     <h6 class="text-primary text-uppercase font-weight-bold">Tentang Kami</h6>
                     <h1 class="mb-4">Tel - U Logistic</h1>
-                    <p class="mb-4">Kami ada untuk membantu sivitas akademika Telkom University Surabaya dalam proses peminjaman Aset milik Kampus.</p>
+                    <p class="mb-4">Kami ada untuk membantu sivitas akademika Telkom University Surabaya dalam proses
+                        peminjaman Aset milik Kampus.</p>
                     <p class="mb-4">Jam Operasional: 08.30 WIB - 15.00 WIB</p>
                     <div class="d-flex align-items-center pt-2">
                         <button type="button" class="btn-play" data-toggle="modal"
-                            data-src="https://www.tiktok.com/@yumyum.snackdrink/video/7367391683513699589?_t=8n3KhSYBKBF&_r=1" data-target="#videoModal">
+                            data-src="https://www.tiktok.com/@yumyum.snackdrink/video/7367391683513699589?_t=8n3KhSYBKBF&_r=1"
+                            data-target="#videoModal">
                             <span></span>
                         </button>
                         <h5 class="font-weight-bold m-0 ml-4">Play Video</h5>
@@ -124,7 +126,8 @@
             </div>
         </div>
         <!-- Video Modal -->
-        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -133,7 +136,8 @@
                         </button>
                         <!-- 16:9 aspect ratio -->
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+                            <iframe class="embed-responsive-item" src="" id="video"
+                                allowscriptaccess="always" allow="autoplay"></iframe>
                         </div>
                     </div>
                 </div>
@@ -165,7 +169,7 @@
                             <p>LCD Monitor</p>
                             <p>Speaker FOH 4</p>
                             <p>Microphone</p>
-                            <a class="btn btn-primary" href="{{ route('create')}}" role="button">Pinjam</a>
+                            <a class="btn btn-primary" href="#" role="button">Pinjam</a>
                         </div>
                     </div>
                 </div>
@@ -184,7 +188,7 @@
                             <p>Mic Wireless</p>
                             <p>Megaphone</p>
                             <p>Kabel steker</p>
-                            <a class="btn btn-primary" href="{{ route('create')}}" role="button">Pinjam</a>
+                            <a class="btn btn-primary" href="#" role="button">Pinjam</a>
                         </div>
                     </div>
                 </div>
@@ -203,7 +207,7 @@
                             <p>Mic Wireless</p>
                             <p>Kabel RCA</p>
                             <p>Kabel Steker 5 Meter</p>
-                            <a class="btn btn-primary" href="{{ route('create')}}" role="button">Pinjam</a>
+                            <a class="btn btn-primary" href="#" role="button">Pinjam</a>
                         </div>
                     </div>
                 </div>
@@ -218,23 +222,31 @@
                 <div class="row">
                     <div class="col-md-6 mb-5">
                         <h3 class="text-primary mb-4">TEL-U LOGISTIK</h3>
-                        <p><i class="fa fa-map-marker-alt mr-2"></i>Jl. Ketintang No.156, Ketintang, Kec. Gayungan, Surabaya, Jawa Timur 60231</p>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>Jl. Ketintang No.156, Ketintang, Kec. Gayungan,
+                            Surabaya, Jawa Timur 60231</p>
                         <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
                         <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
                         <div class="d-flex justify-content-start mt-4">
-                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-light btn-socil" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-socil" href="#"><i
+                                    class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="col-md-6 mb-5">
                         <h3 class="text-primary mb-4">Quick Links</h3>
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Services</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pricing Plan</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About
+                                Us</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our
+                                Services</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pricing
+                                Plan</a>
                             <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
                         </div>
                     </div>
@@ -242,10 +254,12 @@
             </div>
             <div class="col-lg-5 col-md-6 mb-5">
                 <h3 class="text-primary mb-4">About Me</h3>
-                <p>Tel-U Logistik merupakan tempat peminjaman aset yang digunakan oleh sivitas akademika Telkom University Surabaya</p>
+                <p>Tel-U Logistik merupakan tempat peminjaman aset yang digunakan oleh sivitas akademika Telkom
+                    University Surabaya</p>
                 <div class="w-100">
                     <div class="input-group">
-                        <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
+                        <input type="text" class="form-control border-light" style="padding: 30px;"
+                            placeholder="Your Email Address">
                         <div class="input-group-append">
                             <button class="btn btn-primary px-4">Sign Up</button>
                         </div>
@@ -254,14 +268,15 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: #3E3E4E !important;">
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+        style="border-color: #3E3E4E !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
                 <p class="m-0 text-white">&copy; <a href="#">telu_logistic</a>. All Rights Reserved.
 
-				<!--/* This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. */-->
-				Designed by <a href="https://htmlcodex.com">HTML Codex</a>
-                <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    <!--/* This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. */-->
+                    Designed by <a href="https://htmlcodex.com">HTML Codex</a>
+                    <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
                 </p>
             </div>
             <div class="col-lg-6 text-center text-md-right">

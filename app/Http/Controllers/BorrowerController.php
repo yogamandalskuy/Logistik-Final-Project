@@ -7,7 +7,6 @@ use App\Models\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Facades\DB;
 
 class BorrowerController extends Controller
 {
@@ -20,8 +19,13 @@ class BorrowerController extends Controller
 
         return view('Admin.list_borrower', [
             'pageTitle' => $pageTitle,
-            'borrower' => $borrower
+            'borrower' => $borrower,
         ]);
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
     public function create()
@@ -57,7 +61,7 @@ class BorrowerController extends Controller
         }
 
         // ELOQUENT
-        $borrower = new Borrower;
+        $borrower = new Borrower();
         $borrower->user = $request->User;
         $borrower->name = $request->Name;
         $borrower->itemsname = $request->Items_Name;
@@ -70,7 +74,7 @@ class BorrowerController extends Controller
 
         Alert::success('Added Successfully', 'Borrower Data Added Successfully.');
 
-        return redirect()->route('list_borrower');
+        return redirect()->route('borrower.index');
     }
 
     public function show(string $id)
@@ -79,9 +83,6 @@ class BorrowerController extends Controller
 
         // ELOQUENT
         $borrower = Borrower::find($id);
-        // if (!$borrower) {
-        //     return redirect()->route('Dashboard')->with('error', 'Borrower not found');
-        // }
 
         return view('Admin.borrower.show', compact('pageTitle', 'borrower'));
     }
@@ -120,7 +121,7 @@ class BorrowerController extends Controller
         }
 
         // ELOQUENT
-        $borrower = Borrower::findOrFail($id);
+        $borrower = Borrower::find($id);
         $borrower->user = $request->User;
         $borrower->name = $request->Name;
         $borrower->itemsname = $request->Items_Name;
@@ -133,18 +134,20 @@ class BorrowerController extends Controller
 
         Alert::success('Changed Successfully', 'Borrower Data Changed Successfully.');
 
-        return redirect()->route('list_borrower');
+        return redirect()->route('borrower.index');
     }
 
     public function destroy(string $id)
     {
-        // ELOQUENT
-        Borrower::find($id)->delete();
+        $borrower = Borrower::find($id);
 
-        Alert::success('Deleted Successfully', 'Borrower Data Deleted Successfully.');
+        if ($borrower) {
+            $borrower->delete();
+            Alert::success('Deleted Successfully', 'borrower Data Deleted Successfully.');
+        } else {
+            Alert::error('Delete Failed', 'borrower Not Found.');
+        }
 
-        return redirect()->route('list_borrower');
+        return redirect()->route('borrower.index');
     }
 }
-
-
