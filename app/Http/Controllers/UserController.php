@@ -49,15 +49,15 @@ class UserController extends Controller
         }
 
         // ELOQUENT
-        $requestBorrower = new RequestBorrower();
-        $requestBorrower->user = $request->user;
-        $requestBorrower->name = $request->name;
-        $requestBorrower->items_name = $request->items_name;
-        $requestBorrower->quantity = $request->quantity;
-        $requestBorrower->startdate = $request->startdate;
-        $requestBorrower->enddate = $request->enddate;
-        $requestBorrower->save();
+        $request_borrower = new RequestBorrower();
+        $request_borrower->user = $request->user;
+        $request_borrower->name = $request->name;
+        $request_borrower->items_name = $request->items_name;
+        $request_borrower->quantity = $request->quantity;
+        $request_borrower->startdate = $request->startdate;
+        $request_borrower->enddate = $request->enddate;
+        $request_borrower->save();
 
-        return redirect()->route('User.index')->with('success', 'User created successfully.');
+        return redirect()->route('index')->with('success', 'User created successfully.');
     }
 }
