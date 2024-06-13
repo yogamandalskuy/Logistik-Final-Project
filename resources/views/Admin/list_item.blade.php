@@ -13,42 +13,42 @@
                         </ol>
                     </nav>
                     <div class="card mb-4" style="width: 95%; margin-left:2%">
+
                         <div class="card-body">
-                            <table class="table table-bordered table-hover table-striped mb-0 bg-white" id="itemTable">
-                                <thead>
-                                    <tr>
-                                        <th>Code Items</th>
-                                        <th>Items Name</th>
-                                        <th>Amount</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($items as $item)
+                            <div class="d-flex justify-content-end mb-3">
+                                {{-- Button Add Items --}}
+                                <a class="btn btn-outline-primary me-2" href="{{ route('create_item') }}"><i
+                                        class="bi bi-plus-lg" style="margin: 2px"></i>Add Item</a>
+
+                                {{-- Button Export Table --}}
+                                <a class="btn btn-outline-success" href="#"><i class="bi bi-filetype-xls"
+                                        style="margin: 2px"></i>Import
+                                    Excel</a>
+                            </div>
+                            <div class="card" style="padding: 10px">
+                                <table class="table table-bordered table-hover table-striped mb-0 bg-white" id="itemTable">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $item->item_id }}</td>
-                                            <td>{{ $item->item_name }}</td>
-                                            <td>{{ $item->amount }}</td>
-                                            <td>
-                                                <button class="btn btn-outline-success btn-sm me-2 btn-edit"
-                                                    data-id="{{ $item->id }}" data-item_id="{{ $item->item_id }}"
-                                                    data-item_name="{{ $item->item_name }}"
-                                                    data-amount="{{ $item->amount }}">
-                                                    <i class="bi-pencil-square"></i>
-                                                </button>
-                                                <form action="{{ route('item.destroy', $item->id) }}" method="POST"
-                                                    style="display: inline-block;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit"
-                                                        class="btn btn-outline-danger btn-sm me-2 btn-delete"
-                                                        data-name="{{ $item->item_name }}"><i class="bi-trash"></i></button>
-                                                </form>
-                                            </td>
+                                            <th style="text-align: center">No</th>
+                                            <th>Code Items</th>
+                                            <th>Items Name</th>
+                                            <th>Amount</th>
+                                            <th>Actions</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($items as $item)
+                                            <tr>
+                                                <td style="text-align: center">{{ $loop->iteration }}</td>
+                                                <td>{{ $item->item_id }}</td>
+                                                <td>{{ $item->item_name }}</td>
+                                                <td>{{ $item->amount }}</td>
+                                                <td>@include('Admin.actions_item')</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
             </div>
@@ -99,9 +99,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module">
         $(document).ready(function() {
-            console.log('DataTable script running');
-            $("#itemTable").DataTable({
+            var table = $("#itemTable").DataTable({
                 columns: [{
+                        data: null,
+                        name: null,
+                        render: function(data, type, row, meta) {
+                            return meta.row + 1;
+                        }
+                    },
+                    {
                         data: "item_id",
                         name: "item_id"
                     },
@@ -121,7 +127,7 @@
                     }
                 ],
                 order: [
-                    [0, "desc"]
+                    [0, "asc"]
                 ],
                 lengthMenu: [
                     [5, 10, 25, 50, 100, -1],

@@ -14,6 +14,16 @@
                     </div>
                     <div class="card mb-4" style="width: 95%; margin-left:2%">
                         <div class="card-body">
+                            <div class="d-flex justify-content-end mb-3">
+                                {{-- Button Add Items --}}
+                                <a class="btn btn-outline-primary me-2" href="{{ route('add_borrower') }}"><i
+                                        class="bi bi-plus-lg" style="margin: 2px"></i>Add Borrower</a>
+
+                                {{-- Button Export Table --}}
+                                <a class="btn btn-outline-success" href="#"><i class="bi bi-filetype-xls"
+                                        style="margin: 2px"></i>Import
+                                    Excel</a>
+                            </div>
                             <table id="borrowerTable" class="table table-bordered table-hover table-striped mb-0 bg-white">
                                 <thead>
                                     <tr>
@@ -40,39 +50,7 @@
                                             <td>{{ $borrower->guarantee }}</td>
                                             <td>{{ $borrower->status->namastatus }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-outline-info btn-sm me-2 btn-show"
-                                                    data-id="{{ $borrower->id }}" data-user="{{ $borrower->user }}"
-                                                    data-name="{{ $borrower->name }}"
-                                                    data-itemsname="{{ $borrower->itemsname }}"
-                                                    data-qty="{{ $borrower->qty }}"
-                                                    data-startdate="{{ $borrower->startdate }}"
-                                                    data-enddate="{{ $borrower->enddate }}"
-                                                    data-guarantee="{{ $borrower->guarantee }}"
-                                                    data-status="{{ $borrower->status->namastatus }}">
-                                                    SHOW
-                                                </a>
-                                                <button class="btn btn-outline-secondary btn-sm me-2 btn-edit"
-                                                    data-id="{{ $borrower->id }}" data-user="{{ $borrower->user }}"
-                                                    data-name="{{ $borrower->name }}"
-                                                    data-itemsname="{{ $borrower->itemsname }}"
-                                                    data-qty="{{ $borrower->qty }}"
-                                                    data-startdate="{{ $borrower->startdate }}"
-                                                    data-enddate="{{ $borrower->enddate }}"
-                                                    data-guarantee="{{ $borrower->guarantee }}"
-                                                    data-status="{{ $borrower->status->namastatus }}">
-                                                    EDIT
-                                                </button>
-                                                <form
-                                                    action="{{ route('borrower.destroy', ['borrower' => $borrower->id]) }}"
-                                                    method="POST" class="d-inline-block">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit"
-                                                        class="btn btn-outline-danger btn-sm me-2 btn-delete"
-                                                        data-name="{{ $borrower->user }}">
-                                                        DELETE
-                                                    </button>
-                                                </form>
+                                                @include('Admin.actions_borrower')
                                             </td>
                                         </tr>
                                     @endforeach
@@ -98,7 +76,7 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="edit_user" class="form-label">User</label>
-                                <select name="user" id="edit_user" class="form-select">
+                                {{-- <select name="user" id="edit_user" class="form-select">
                                     <option value="Dosen" {{ old('User', $borrower->user) == 'Dosen' ? 'selected' : '' }}>
                                         Dosen </option>
                                     <option value="Staff" {{ old('User', $borrower->user) == 'Staff' ? 'selected' : '' }}>
@@ -106,7 +84,7 @@
                                     <option value="Mahasiswa"
                                         {{ old('User', $borrower->user) == 'Mahasiswa' ? 'selected' : '' }}>
                                         Mahasiswa </option>
-                                </select>
+                                </select> --}}
                             </div>
                             <div class="form-group">
                                 <label for="edit_name" class="form-label">Name</label>
@@ -138,7 +116,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="edit_status" class="form-label">Status</label>
-                                <select name="status" id="edit_status" class="form-select">
+                                <select name="status" id="edit_status" class="form-control">
                                     <option value="Pending"
                                         {{ old('status', $borrower->status) == '1 - Pending' ? 'selected' : '' }}>
                                         Pending </option>
@@ -171,6 +149,54 @@
         $(document).ready(function() {
             console.log('DataTable script running');
             $("#borrowerTable").DataTable();
+            ({
+                columns: [{
+                        data: "user",
+                        name: "user"
+                    },
+                    {
+                        data: "name",
+                        name: "name"
+                    },
+                    {
+                        data: "itemsname",
+                        name: "itemsname"
+                    },
+                    {
+                        data: "qty",
+                        name: "qty"
+                    },
+                    {
+                        data: "startdate",
+                        name: "startdate"
+                    },
+                    {
+                        data: "enddate ",
+                        name: "enddate "
+                    },
+                    {
+                        data: "guarantee",
+                        name: "guarantee"
+                    },
+                    {
+                        data: "namastatus",
+                        name: "namastatus"
+                    },
+                    {
+                        data: "actions",
+                        name: "actions",
+                        orderable: false,
+                        searchable: false
+                    }
+                ],
+                order: [
+                    [0, "desc"]
+                ],
+                lengthMenu: [
+                    [5, 10, 25, 50, 100, -1],
+                    [5, 10, 25, 50, 100, "All"]
+                ],
+            })
 
             // SHOW
             $(".btn-show").on("click", function(e) {
@@ -211,7 +237,7 @@
             });
 
             // Handle edit button click event
-            $(".btn-edit").on("click", function() {
+            $("#borrowerTable").on("click", ".btn-edit", function() {
                 var id = $(this).data('id');
                 var user = $(this).data('user');
                 var name = $(this).data('name');

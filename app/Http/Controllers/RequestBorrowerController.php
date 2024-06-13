@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RequestBorrower;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
-class UserController extends Controller
+class RequestBorrowerController extends Controller
 {
     public function index()
     {
@@ -22,13 +21,10 @@ class UserController extends Controller
     {
         $pageTitle = 'Create User';
 
-        return view('User.create', ['pageTitle' => $pageTitle]);
+        return view('User.create', compact('pageTitle'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store()
     {
         $messages = [
             'required' => ':Attribute harus diisi.',
@@ -49,15 +45,22 @@ class UserController extends Controller
         }
 
         // ELOQUENT
-        $requestBorrower = new RequestBorrower();
-        $requestBorrower->user = $request->user;
-        $requestBorrower->name = $request->name;
-        $requestBorrower->items_name = $request->items_name;
-        $requestBorrower->quantity = $request->quantity;
-        $requestBorrower->startdate = $request->startdate;
-        $requestBorrower->enddate = $request->enddate;
-        $requestBorrower->save();
+        $request = new request();
+        $request->user = $request->user;
+        $request->name = $request->name;
+        $request->items_name = $request->items_name;
+        $request->quantity = $request->quantity;
+        $request->startdate = $request->startdate;
+        $request->enddate = $request->enddate;
+        $request->save();
 
-        return redirect()->route('User.index')->with('success', 'User created successfully.');
+        Alert::success('Request Successfully', 'Request to Borrow Goods Successfully Sent');
+
+        return redirect()->route('requsetborrower.index');
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 }
