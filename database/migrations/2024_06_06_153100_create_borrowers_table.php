@@ -14,8 +14,8 @@ return new class() extends Migration {
             $table->id();
             $table->string('user');
             $table->string('name');
-            $table->string('items_name');
-            $table->integer('quantity');
+            $table->string('itemsname');
+            $table->integer('qty');
             $table->date('startdate');
             $table->date('enddate');
             $table->string('guarantee');
