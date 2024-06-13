@@ -89,7 +89,7 @@
     <div class="jumbotron jumbotron-fluid mb-5">
         <div class="container text-center py-5">
             <h1 class="text-white display-3">Pengajuan Peminjaman</h1>
-            <a class="btn btn-primary" href="" role="button">Ajukan Peminjaman</a>
+            <a class="btn btn-primary" href="{{ route('create_user') }}" role="button">Ajukan Peminjaman</a>
             <hr>
 
         </div>

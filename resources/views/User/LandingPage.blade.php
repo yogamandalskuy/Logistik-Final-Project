@@ -169,7 +169,7 @@
                             <p>LCD Monitor</p>
                             <p>Speaker FOH 4</p>
                             <p>Microphone</p>
-                            <a class="btn btn-primary" href="#" role="button">Pinjam</a>
+                            <a class="btn btn-primary" href="{{ route('create_user') }}" role="button">Pinjam</a>
                         </div>
                     </div>
                 </div>
@@ -188,7 +188,7 @@
                             <p>Mic Wireless</p>
                             <p>Megaphone</p>
                             <p>Kabel steker</p>
-                            <a class="btn btn-primary" href="#" role="button">Pinjam</a>
+                            <a class="btn btn-primary" href="{{ route('create_user') }}" role="button">Pinjam</a>
                         </div>
                     </div>
                 </div>
@@ -207,7 +207,7 @@
                             <p>Mic Wireless</p>
                             <p>Kabel RCA</p>
                             <p>Kabel Steker 5 Meter</p>
-                            <a class="btn btn-primary" href="#" role="button">Pinjam</a>
+                            <a class="btn btn-primary" href="{{ route('create_user') }}" role="button">Pinjam</a>
                         </div>
                     </div>
                 </div>

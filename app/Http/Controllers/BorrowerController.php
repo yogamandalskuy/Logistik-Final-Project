@@ -43,17 +43,16 @@ class BorrowerController extends Controller
         $messages = [
             'required' => ':Attribute harus diisi.',
             'numeric' => 'Isi :attribute dengan angka.',
-            'date' => 'Isi :attribute sesuai ketentuan tanggal.',
         ];
 
         $validator = Validator::make($request->all(), [
-            'User' => 'required',
-            'Name' => 'required',
-            'Items_Name' => 'required',
-            'Qty' => 'required|numeric',
-            'Start_Date' => 'required|date',
-            'End_Date' => 'required|date',
-            'Guarantee' => 'required',
+            'user' => 'required',
+            'name' => 'required',
+            'itemsname' => 'required',
+            'qty' => 'required|numeric',
+            'startdate' => 'required',
+            'enddate' => 'required',
+            'guarantee' => 'required',
         ], $messages);
 
         if ($validator->fails()) {
@@ -62,14 +61,14 @@ class BorrowerController extends Controller
 
         // ELOQUENT
         $borrower = new Borrower();
-        $borrower->user = $request->User;
-        $borrower->name = $request->Name;
-        $borrower->itemsname = $request->Items_Name;
-        $borrower->qty = $request->Qty;
-        $borrower->startdate = $request->Start_Date;
-        $borrower->enddate = $request->End_Date;
-        $borrower->guarantee = $request->Guarantee;
-        $borrower->status_id = $request->status;
+        $borrower->user = $request->user;
+        $borrower->name = $request->name;
+        $borrower->itemsname = $request->itemsname;
+        $borrower->qty = $request->qty;
+        $borrower->startdate = $request->startdate;
+        $borrower->enddate = $request->enddate;
+        $borrower->guarantee = $request->guarantee;
+        $borrower->status_id = $request->status_id;
         $borrower->save();
 
         Alert::success('Added Successfully', 'Borrower Data Added Successfully.');
@@ -103,17 +102,16 @@ class BorrowerController extends Controller
         $messages = [
             'required' => ':Attribute harus diisi.',
             'numeric' => 'Isi :attribute dengan angka.',
-            'date' => 'Isi :attribute sesuai ketentuan tanggal.',
         ];
 
         $validator = Validator::make($request->all(), [
-            'User' => 'required',
-            'Name' => 'required',
-            'Items_Name' => 'required',
-            'Qty' => 'required|numeric',
-            'Start_Date' => 'required|date',
-            'End_Date' => 'required|date',
-            'Guarantee' => 'required',
+            'user' => 'required',
+            'name' => 'required',
+            'itemsname' => 'required',
+            'qty' => 'required|numeric',
+            'startdate' => 'required',
+            'enddate' => 'required',
+            'guarantee' => 'required',
         ], $messages);
 
         if ($validator->fails()) {
@@ -122,13 +120,13 @@ class BorrowerController extends Controller
 
         // ELOQUENT
         $borrower = Borrower::find($id);
-        $borrower->user = $request->User;
-        $borrower->name = $request->Name;
-        $borrower->itemsname = $request->Items_Name;
-        $borrower->qty = $request->Qty;
-        $borrower->startdate = $request->Start_Date;
-        $borrower->enddate = $request->End_Date;
-        $borrower->guarantee = $request->Guarantee;
+        $borrower->user = $request->user;
+        $borrower->name = $request->name;
+        $borrower->itemsname = $request->itemsname;
+        $borrower->qty = $request->qty;
+        $borrower->startdate = $request->startdate;
+        $borrower->enddate = $request->enddate;
+        $borrower->guarantee = $request->guarantee;
         $borrower->status_id = $request->status;
         $borrower->save();
 
@@ -149,5 +147,18 @@ class BorrowerController extends Controller
         }
 
         return redirect()->route('borrower.index');
+    }
+
+    public function getData(Request $request)
+    {
+        $item = item;
+        if ($request->ajax()) {
+            return datatables()->of($item)
+            ->addIndexColumn()
+            ->addColumn('actions', function ($item) {
+                return view('Admin.actions_item', compact('item'));
+            })
+            ->toJson();
+        }
     }
 }

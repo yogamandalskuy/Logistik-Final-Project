@@ -17,7 +17,8 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Add Borrower</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Navigate To</a>
+                                        <a class="small text-white stretched-link"
+                                            href="{{ route('add_borrower') }}">Navigate To</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -26,7 +27,8 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">List Data Borrower</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Navigate To</a>
+                                        <a class="small text-white stretched-link"
+                                            href="{{ route('list_borrower') }}">Navigate To</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -35,7 +37,8 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Add Items</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Navigate To</a>
+                                        <a class="small text-white stretched-link"
+                                            href="{{ route('create_item') }}">Navigate To</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -44,7 +47,8 @@
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">List Data Items</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Navigate To</a>
+                                        <a class="small text-white stretched-link" href="{{ route('list_item') }}">Navigate
+                                            To</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

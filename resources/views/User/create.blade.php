@@ -68,18 +68,18 @@
                     <img src="User/img/logo.jpg" alt="logo" style="width: 50px; margin-right: 10px;">
                     <h4>Tel-U Logistic</h4>
                 </div>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
-                <div class="navbar-nav m-auto py-0">
-                    <a href="{{ route('landingpage') }}" class="nav-item nav-link">Beranda</a>
-                    <a href="{{ route('about') }}" class="nav-item nav-link">Tentang</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Layanan</a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a href="{{ route('pengajuan') }}" class="dropdown-item">Pengajuan Peminjaman</a>
-                            <a href="{{ route('jadwal') }}" class="dropdown-item">Jadwal Peminjaman</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                    <div class="navbar-nav m-auto py-0">
+                        <a href="{{ route('landingpage') }}" class="nav-item nav-link">Beranda</a>
+                        <a href="{{ route('about') }}" class="nav-item nav-link">Tentang</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Layanan</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="{{ route('pengajuan') }}" class="dropdown-item">Pengajuan Peminjaman</a>
+                                <a href="{{ route('jadwal') }}" class="dropdown-item">Jadwal Peminjaman</a>
         </nav>
     </div>
     <!-- Navbar End -->
@@ -91,62 +91,76 @@
         <i class="bi-person-circle fs-1"></i>
         <h4>Buat Peminjaman</h4>
     </div>
-    <form>
-        {{-- action="{{ route('.store') }}" method="POST" --}}
+    <form action="{{ route('store') }}" method="POST">
         @csrf
         <div class="row justify-content-center">
             <div class="p-5 bg-light rounded-3 border col-xl-6">
-
-                @if ($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <div class="alert alert-danger alert-dismissible fade show">
-                           {{ $error }}
-                           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endforeach
-                @endif
-
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="User" class="form-label">Users</label>
-                        <br>
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="1">Mahasiswa</option>
-                            <option value="2">Dosen</option>
+                        <label for="user" class="form-label">User</label>
+                        <select name="user" id="user" class="form-select">
+                            <option value="Dosen">Dosen</option>
+                            <option value="Staff">Staff</option>
+                            <option value="Mahasiswa">Mahasiswa</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="firstName" class="form-label">Nama</label>
-                        <input class="form-control" type="text" name="firstName" id="firstName" value="" placeholder="Masukkan Nama Peminjam">
+                        <label for="name" class="form-label">Name</label>
+                        <input class="form-control @error('name') is-invalid @enderror" type="text" name="name"
+                            id="name" value="{{ old('name') }}" placeholder="Masukkan Nama">
+                        @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="email" class="form-label">Items Name</label>
-                        <input class="form-control" type="text" name="email" id="email" value="" placeholder="Masukkan Nama Items">
+                        <label for="items_name" class="form-label">Items Name</label>
+                        <input class="form-control @error('items_name') is-invalid @enderror" type="text"
+                            name="items_name" id="items_name" value="{{ old('items_name') }}"
+                            placeholder="Masukkan Nama Barang">
+                        @error('items_name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="" class="form-label">Qty</label>
-                        <input class="form-control" type="text" name="age" id="age" value="" placeholder="Masukkan Jumlah Barang">
+                        <label for="quantity" class="form-label">quantity</label>
+                        <input class="form-control @error('quantity') is-invalid @enderror" type="text"
+                            name="quantity" id="quantity" value="{{ old('quantity') }}"
+                            placeholder="Masukkan Jumlah">
+                        @error('quantity')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="" class="form-label">Start Date</label>
-                        <input class="form-control" type="text" name="age" id="age" value="" placeholder="Tanggal Mulai Peminjaman">
+                        <label for="startdate" class="form-label">Start Date</label>
+                        <input class="form-control @error('startdate') is-invalid @enderror" type="date"
+                            name="startdate" id="startdate" value="{{ old('startdate') }}">
+                        @error('startdate')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="" class="form-label">End Date</label>
-                        <input class="form-control" type="text" name="age" id="age" value="" placeholder="Tanggal Selesai Peminjaman">
+                        <label for="enddate" class="form-label">End Date</label>
+                        <input class="form-control @error('enddate') is-invalid @enderror" type="date"
+                            name="enddate" id="enddate" value="{{ old('enddate') }}">
+                        @error('enddate')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
-                </div>
-
-                <hr>
-                <div class="row">
-                    <div class="col-md-6 d-grid">
-                        <a href="{{ route('index') }}" class="btn btn-outline-dark btn-lg mt-3"><i class="bi-arrow-left-circle me-2"></i> Cancel</a>
-                    </div>
-                    <div class="col-md-6 d-grid">
-                        <button type="submit" class="btn btn-dark btn-lg mt-3"><i class="bi-check-circle me-2"></i> Save</button>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6 d-grid">
+                            <a href="{{ route('index') }}" class="btn btn-outline-dark btn-lg mt-3">
+                                <i class="bi-arrow-left-circle me-2"></i> Cancel
+                            </a>
+                        </div>
+                        <div class="col-md-6 d-grid">
+                            <button type="submit" class="btn btn-dark btn-lg mt-3">
+                                <i class="bi-check-circle me-2"></i> Save
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-
+</body>
