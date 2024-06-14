@@ -16,8 +16,8 @@ class BorrowerSeeder extends Seeder
             [
                 'user' => 'Mahasiswa',
                 'name' => 'Shayne',
-                'itemsname' => 'meja',
-                'qty' => 3,
+                'items_name' => 'meja',
+                'quantity' => 3,
                 'startdate' => '2024-05-22',
                 'enddate' => '2024-05-23',
                 'guarantee' => 'ktp',
@@ -26,8 +26,8 @@ class BorrowerSeeder extends Seeder
             [
                 'user' => 'Staff',
                 'name' => 'Sandy',
-                'itemsname' => 'kursi',
-                'qty' => 3,
+                'items_name' => 'kursi',
+                'quantity' => 3,
                 'startdate' => '2024-05-24',
                 'enddate' => '2024-05-27',
                 'guarantee' => 'ktp',
@@ -36,8 +36,8 @@ class BorrowerSeeder extends Seeder
             [
                 'user' => 'Mahasiswa',
                 'name' => 'Shayne',
-                'itemsname' => 'meja',
-                'qty' => 3,
+                'items_name' => 'meja',
+                'quantity' => 3,
                 'startdate' => '2024-05-22',
                 'enddate' => '2024-05-23',
                 'guarantee' => 'ktp',

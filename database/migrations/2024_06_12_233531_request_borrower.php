@@ -10,12 +10,12 @@ return new class() extends Migration {
      */
     public function up(): void
     {
-        Schema::create('requestborrower', function (Blueprint $table) {
+        Schema::create('request_borrowers', function (Blueprint $table) {
             $table->id();
             $table->string('user');
             $table->string('name');
-            $table->string('itemsname');
-            $table->integer('qty');
+            $table->string('items_name');
+            $table->integer('quantity');
             $table->date('startdate');
             $table->date('enddate');
             $table->timestamps();
@@ -27,6 +27,6 @@ return new class() extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('requestborrower');
+        Schema::dropIfExists('request_borrowers');
     }
 };
