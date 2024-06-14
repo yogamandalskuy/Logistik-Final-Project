@@ -56,7 +56,7 @@ class RequestBorrowerController extends Controller
 
         Alert::success('Request Successfully', 'Request to Borrow Goods Successfully Sent');
 
-        return redirect()->route('requsetborrower.index');
+        return redirect()->route('request_borrower.index');
     }
 
     public function __construct()
